@@ -1,4 +1,4 @@
-(function() {
+ (function() {
   "use strict";
 
   /**
@@ -94,24 +94,7 @@
   }
   window.addEventListener('load', aosInit);
 
-  document.addEventListener('keydown', function(e) {
-            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        (function() {
-            var devtools = /./;
-            devtools.toString = function() {
-                alert('Developer Tools Detected!');
-            };
-            console.log(devtools);
-        })();
-
-        function obfuscatedFunction() {
-            console.log('This code is obfuscated');
-        }
+ 
   /**
    * Initiate Pure Counter
    */
