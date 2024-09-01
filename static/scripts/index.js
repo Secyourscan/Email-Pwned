@@ -91,7 +91,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         const inputValue = $("#recipient-name").val().toLowerCase();
-        const apiUrl = 'https://api.xposedornot.com/v1/alertme/' + encodeURIComponent(inputValue);
+        const apiUrl = 'https://https://emailpwned-api.vercel.app/v1/alertme/' + encodeURIComponent(inputValue);
 
         $.ajax(apiUrl)
             .done(() => {
@@ -110,10 +110,10 @@ $(document).ready(function () {
 
     $("#alertMe_i1").removeClass("fa fa-spinner fa-spin");
     $("#alertMe_i2").addClass("fa fa-bell ring");
-});
+}); 
 
 $(document).ready(function () {
-    const apiUrlBase = 'https://backedn-api.vercel.app/v1/breach-analytics?email=';
+    const apiUrlBase = 'https://emailpwned-api.vercel.app/v1/breach-analytics?email=';
 
     $("#searchMe").click(function (event) {
         event.preventDefault();
@@ -302,7 +302,7 @@ function handleVideoModal() {
         videoElement.attr('src', videoSrc);
     });
 }
-const apiUrl = '';
+const apiUrl = 'https://emailpwned-api.vercel.app/v1/metrics/';
 const pastesCountElement = $("#p1");
 const pastesRecordsElement = $("#p2");
 const breachesCountElement = $("#b1");
