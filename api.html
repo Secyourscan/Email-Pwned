@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailPwned API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            margin-bottom: 40px;
+        }
+        .example, .response {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007BFF;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>EmailPwned API Documentation</h1>
+    <p>Base URL: <code>https://emailpwned-api.vercel.app/v1/</code></p>
+
+    <div class="endpoint">
+        <h2>1. Check Breaches by Email (Email Shield)</h2>
+        <h3>Endpoint</h3>
+        <p><code>/email-shield/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>This endpoint checks for breaches associated with the provided email address.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>email</strong> (required): The email address to check for breaches.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /email-shield/?email=aryanstha4859%40gmail.com</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Breaches_Count": 2,
+  "Breaches_Records": [
+    {
+      "Title": "Breach Example 1",
+      "Domain": "example.com",
+      "BreachDate": "2022-06-01"
+    },
+    {
+      "Title": "Breach Example 2",
+      "Domain": "example2.com",
+      "BreachDate": "2023-03-05"
+    }
+  ]
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>2. All Breaches</h2>
+        <h3>Endpoint</h3>
+        <p><code>/all-breaches/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Retrieves a list of all known data breaches.</p>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /all-breaches/</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+[
+  {
+    "Title": "Breach Example 1",
+    "Domain": "example.com",
+    "BreachDate": "2022-06-01"
+  },
+  {
+    "Title": "Breach Example 2",
+    "Domain": "example2.com",
+    "BreachDate": "2023-03-05"
+  }
+]
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>3. Pulse (Real-Time Updates)</h2>
+        <h3>Endpoint</h3>
+        <p><code>/pulse/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Provides real-time updates on the latest breaches.</p>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /pulse/</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+[
+  {
+    "Title": "Latest Breach Example",
+    "Domain": "newsite.com",
+    "BreachDate": "2024-09-22"
+  }
+]
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>4. Metrics</h2>
+        <h3>Endpoint</h3>
+        <p><code>/metrics/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Returns metrics data about all breaches, including a count of breached records and affected domains.</p>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /metrics/</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Total_Breaches": 10500,
+  "Affected_Domains": 8500
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>5. Domain Breaches Summary</h2>
+        <h3>Endpoint</h3>
+        <p><code>/domain-breaches-summary/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Returns a summary of breaches for a specific domain.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>domain</strong> (required): The domain to check for breaches.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /domain-breaches-summary?domain=presidential.edu.np</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Breaches_Count": 5,
+  "Breaches_Records": [
+    {
+      "Title": "Breach Example 1",
+      "Domain": "example.com",
+      "BreachDate": "2022-06-01"
+    },
+    {
+      "Title": "Breach Example 2",
+      "Domain": "example2.com",
+      "BreachDate": "2023-03-05"
+    }
+  ]
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>6. Proxy Breaches by Domain</h2>
+        <h3>Endpoint</h3>
+        <p><code>/proxy-breaches-by-domain/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Fetches breaches for a specific domain using a proxy service.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>domain</strong> (required): The domain to check for breaches.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /proxy-breaches-by-domain/?domain=vianet.com.np</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Breaches_Count": 3,
+  "Breaches_Records": [
+    {
+      "Title": "Breach Example 1",
+      "Domain": "vianet.com.np",
+      "BreachDate": "2021-05-01"
+    }
+  ]
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>7. Check Email Breach</h2>
+        <h3>Endpoint</h3>
+        <p><code>/check-email/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Checks if an email has been part of any known breaches.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>email</strong> (required): The email address to check for breaches.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /check-email/?email=aryan@gmail.com</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Breaches_Count": 1,
+  "Breaches_Records": [
+    {
+      "Title": "Breach Example",
+      "Domain": "gmail.com",
+      "BreachDate": "2020-08-01"
+    }
+  ]
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>8. Email Domain Verification</h2>
+        <h3>Endpoint</h3>
+        <p><code>/emailVerification/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Verifies domain ownership for a given email address's domain.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>domain</strong> (required): The domain to verify.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /emailVerification?domain=presidential.edu.np</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Verification_Status": "Success"
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>9. Slack Configuration</h2>
+        <h3>Endpoint</h3>
+        <p><code>/slack-config/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Sets up Slack integration for breach alerts.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>email</strong> (required): The email address to associate with the Slack configuration.</li>
+            <li><strong>domain</strong> (required): The domain to associate with the Slack configuration.</li>
+            <li><strong>token</strong> (required): The authentication token for Slack API.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /slack-config?email=example@gmail.com&domain=example.com&token=abcd1234</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Slack_Integration": "Configured Successfully"
+}
+        </pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>10. Teams Channel Configuration</h2>
+        <h3>Endpoint</h3>
+        <p><code>/teams-channel-config/</code></p>
+
+        <h3>Method</h3>
+        <p><code>GET</code></p>
+
+        <h3>Description</h3>
+        <p>Sets up Microsoft Teams integration for breach alerts.</p>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>email</strong> (required): The email address to associate with the Teams configuration.</li>
+            <li><strong>domain</strong> (required): The domain to associate with the Teams configuration.</li>
+            <li><strong>token</strong> (required): The authentication token for Teams API.</li>
+        </ul>
+
+        <h3>Example Request</h3>
+        <pre class="example">GET /teams-channel-config?email=example@gmail.com&domain=example.com&token=abcd1234</pre>
+
+        <h3>Response</h3>
+        <pre class="response">
+{
+  "Teams_Integration": "Configured Successfully"
+}
+        </pre>
+    </div>
+
+</body>
+</html>
